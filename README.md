@@ -1,8 +1,5 @@
 # Análise estática de código com Sonarcube e Docker 
 
-O objetivo desse tutorial é implantar um processo minimo de qualidade dentro de times que constroem softwares.
-
-
  **Passo 1 configurando o Container**
  
 Primeiramente é necessário fazer o Build da imagem com o comando abaixo
