@@ -2,36 +2,27 @@
 
  **Passo 1 configurando o Container**
  
-Primeiramente é necessário fazer o Build da imagem com o comando abaixo
+O primeiro passo é fazer o Build da imagem com as configurações necessárias para o seu container
 
 ```
 $ sudo docker build -t sonarqube-docker-5.6.7 .
 ```
 
-O próximo passo é levantear o container, o comando abaixo indica que sobe o container na porta 9000
-```
-$ sudo docker run --name sonarqube-docker-5.6.7 -v $PWD/qualityprofile:/qualityprofile -p 9000:9000 -p 9002:9002 --env-file ./env.file sonarqube-docker-5.6.7
-```
-
-Se tudo o ocorreu bem até aqui você já pode testar o sonar no endereço abaixo:
-
-    http://localhost:9000
-
-Caso queira parar o container em execução
-
-```
-sudo docker container stop sonarqube-docker-5.6.7
+O próximo passo é subir o contêiner, o comando abaixo sobe o contêiner com base na imagem que acabamos de criar e expõe a porta 9000 para que possamos acessar o sonar no contêiner.
+``` 
+$ sudo docker run -v $PWD/qualityprofile:/qualityprofile -p 9000:9000 -p 9002:9002 --env-file ./env.file sonarqube-docker-5.6.7
 ```
 
-Remover o container
+Após executar o comando, você pode ver o sonar executando  [nesse endereço](http://localhost:9000)
+
 
 ```
-sudo docker container stop sonarqube-docker-5.6.7
+Imagem aqui do sonar rodando
 ```
 
-**Passo 2 - configurando maven e os projetos** 
+**Passo 2 - configurando o maven e os projetos** 
 
-Para podermos ter nossos projetos sendo analizados pelo maven, precisamos configurar alguns pontos em nosso ambiente.
+Com o sonar sendo o executado, agora podemos configura o nosso ambiente e projetos para serem analisados pelo sonar e podermos nos aproveitar dos feedback dessa ferramenta.
 
 O primeiro ponto é alterar o arquivo setings do maven, insira o código abaixo no seu arquivo settings
 
@@ -57,35 +48,28 @@ O primeiro ponto é alterar o arquivo setings do maven, insira o código abaixo 
 </settings>
 
 ```
-Para ver o projeto sendo executado pelo maven pasta executar o plugin sonar do maven
-
+Após essa configuração, já podemos ter a analise do sonar em nosso projeto, para gerar os relatórios execute o comando abaixo e acesse novamente o Sonar  [aqui](http://localhost:9000)
 ```
 mvn sonar:sonar
 ```
 
-Agora basta acessar o sonar no endereço e ver os relatórios do gerados pelo sonar 
-
-```
-http://localhost:9000
-```
-
 ```
 Incluir imagem aqui
 ```
 
-**Importando regras de qualidade do time**
+**Importando regras de qualidade do personalizadas**
 
-É possível importar regras personalizadas no Sonar caso seu time utilize padrões proprios de desenvolvimento, para isso vá em,  Quality Profile > Create > Restore Profile e importe o arquivo xml com as regras de sua equipe.
+É possível importar regras personalizadas no Sonar caso seu time utilize padrões próprios de desenvolvimento, para isso vá em,  Quality Profile > Create > Restore Profile e importe o arquivo xml com as regras de sua equipe.
 
 ```
 Incluir imagem aqui
 ```
-Após importar as regras personalizadas clique no perfil importado e em Set as default
+Após importar as regras personalizadas clique no perfil importado clique Set as default para ativar as regras importadas
 ```
 Incluir imagem aqui
 ```
 
-**integrando o Sonar com o eclipse**
+**Integração Sonar com o eclipse**
 
 É possível visualizar os apontamentos do sonar em tempo de desenvolvimento, para fazer isso basta instalar o plugin [sonarLint](http://www.sonarlint.org/), com esse plugin é possível sincronizar as regras do seu container sonar e utiliza-las no seu projeto e em tempo real ter o feed back das regras de qualidade do sonar.
 
@@ -94,4 +78,7 @@ A instalação desse plugin é bem simples, abaixo seguem os links para cada IDE
  -  [Eclipse](http://www.sonarlint.org/eclipse/index.html)
  - [Vscode](https://code.visualstudio.com/)
  - [Intellij](http://www.sonarlint.org/intellij/index.html)
+
+Referencias
+ -  https://github.com/linagora/docker-sonarqube-pr
 
