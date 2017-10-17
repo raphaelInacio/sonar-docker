@@ -8,12 +8,12 @@ O objetivo desse tutorial é implantar um processo minimo de qualidade dentro de
 Primeiramente é necessário fazer o Build da imagem com o comando abaixo
 
 ```
-$ sudo docker build -t sonarqube-infoglobo-5.6.7 .
+$ sudo docker build -t sonarqube-docker-5.6.7 .
 ```
 
 O próximo passo é levantear o container, o comando abaixo indica que sobe o container na porta 9000
 ```
-$ sudo docker run --name sonarqube-infoglobo-5.6.7 -v $PWD/qualityprofile:/qualityprofile -p 9000:9000 -p 9002:9002 --env-file ./env.file sonarqube-infoglobo-5.6.7
+$ sudo docker run --name sonarqube-docker-5.6.7 -v $PWD/qualityprofile:/qualityprofile -p 9000:9000 -p 9002:9002 --env-file ./env.file sonarqube-docker-5.6.7
 ```
 
 Se tudo o ocorreu bem até aqui você já pode testar o sonar no endereço abaixo:
@@ -23,13 +23,13 @@ Se tudo o ocorreu bem até aqui você já pode testar o sonar no endereço abaix
 Caso queira parar o container em execução
 
 ```
-sudo docker container stop sonarqube-infoglobo-5.6.7
+sudo docker container stop sonarqube-docker-5.6.7
 ```
 
 Remover o container
 
 ```
-sudo docker container stop sonarqube-infoglobo-5.6.7
+sudo docker container stop sonarqube-docker-5.6.7
 ```
 
 **Passo 2 - configurando maven e os projetos** 
