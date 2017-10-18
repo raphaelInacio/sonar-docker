@@ -53,23 +53,20 @@ Após essa configuração, já podemos ter a analise do sonar em nosso projeto, 
 mvn sonar:sonar
 ```
 
-```
-Incluir imagem aqui
-```
+![enter image description here](https://i.stack.imgur.com/fWm1N.png)
 
 **Importando regras de qualidade do personalizadas**
 
 É possível importar regras personalizadas no Sonar caso seu time utilize padrões próprios de desenvolvimento, para isso vá em,  Quality Profile > Create > Restore Profile e importe o arquivo xml com as regras de sua equipe.
 
-```
-Incluir imagem aqui
-```
+![enter image description here](https://github.com/checkstyle/resources/raw/master/img/sonar-wiki/sonar-import-checkstyle-config.png)
+
 Após importar as regras personalizadas clique no perfil importado clique Set as default para ativar as regras importadas
 ```
 Incluir imagem aqui
 ```
 
-**Integração Sonar com o eclipse**
+**Integração com a IDE de desenvolvimento**
 
 É possível visualizar os apontamentos do sonar em tempo de desenvolvimento, para fazer isso basta instalar o plugin [sonarLint](http://www.sonarlint.org/), com esse plugin é possível sincronizar as regras do seu container sonar e utiliza-las no seu projeto e em tempo real ter o feed back das regras de qualidade do sonar.
 
@@ -81,4 +78,5 @@ A instalação desse plugin é bem simples, abaixo seguem os links para cada IDE
 
 Referencias
  -  https://github.com/linagora/docker-sonarqube-pr
+
 
