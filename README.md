@@ -2,7 +2,7 @@
 
  **Passo 1 configurando o Container**
  
-O primeiro passo é fazer o Build da imagem com as configurações necessárias para o seu container
+O primeiro passo é clonar o repositório e fazer o Build da imagem com as configurações necessárias para o seu container
 
 ```
 $ sudo docker build -t sonarqube-docker-5.6.7 .
